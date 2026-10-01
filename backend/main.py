@@ -29,13 +29,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://ai-resume-screening-system-adv6sp5c7-rajat123484.vercel.app"
-    "https://ai-resume-screening-system-2n070eg18-rajat123484.vercel.app"
-],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
