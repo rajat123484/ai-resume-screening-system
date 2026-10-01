@@ -17,7 +17,6 @@ function App() {
 
     // =========================================================
     // FILE UPLOAD
-    // New files are added to existing files instead of replacing
     // =========================================================
 
     const handleFileChange = (event) => {
@@ -74,7 +73,6 @@ function App() {
 
         setResults(null);
 
-        // Allows selecting the same file again after removing it
         event.target.value = "";
     };
 
@@ -132,7 +130,7 @@ function App() {
             setLoading(true);
 
             const response = await fetch(
-                "http://127.0.0.1:8001/screen-candidates",
+                "https://ai-resume-screening-system-0adi.onrender.com/screen-candidates",
                 {
                     method: "POST",
                     body: formData,
@@ -272,6 +270,7 @@ function App() {
             <header className="top-header">
 
                 <div>
+
                     <h1>
                         AI Resume Screening System
                     </h1>
@@ -280,6 +279,7 @@ function App() {
                         AI-Based Resume Screening and
                         Candidate Shortlisting System
                     </p>
+
                 </div>
 
             </header>
