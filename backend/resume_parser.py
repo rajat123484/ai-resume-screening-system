@@ -5,15 +5,6 @@ from paddleocr import PaddleOCR
 
 
 # =========================================================
-# OCR MODEL
-# =========================================================
-
-ocr = PaddleOCR(
-    lang="en"
-)
-
-
-# =========================================================
 # MAIN RESUME TEXT EXTRACTOR
 # =========================================================
 
@@ -65,6 +56,13 @@ def extract_text_from_pdf(file_path):
 # =========================================================
 
 def extract_text_with_ocr(file_path):
+
+    # Initialize OCR only when actually required.
+    # This prevents PaddleOCR from loading during
+    # FastAPI server startup on Render.
+    ocr = PaddleOCR(
+        lang="en"
+    )
 
     doc = pymupdf.open(file_path)
 
@@ -142,7 +140,6 @@ def extract_text_from_docx(file_path):
         if text:
             extracted_text.append(text)
 
-
     # -----------------------------------------------------
     # Tables
     # -----------------------------------------------------
@@ -161,9 +158,9 @@ def extract_text_from_docx(file_path):
                     row_text.append(cell_text)
 
             if row_text:
+
                 extracted_text.append(
                     " | ".join(row_text)
                 )
-
 
     return "\n".join(extracted_text)
