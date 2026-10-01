@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pymupdf
+python-docx
+paddleocr
+paddlepaddle
+spacy
+sentence-transformers
+scikit-learn
+pandas
+numpy
+psycopg2-binary
+python-dotenv

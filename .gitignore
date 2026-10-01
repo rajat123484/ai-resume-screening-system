@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+*.env
+data/resumes/*
+data/job_descriptions/*
+temp_page_*.png
+.cache/
+models/*
+node_modules/
+frontend/dist/
